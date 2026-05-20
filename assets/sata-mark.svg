@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="SATA mark">
+  <defs>
+    <linearGradient id="g" x1="18" y1="12" x2="102" y2="108" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f1d28a"/>
+      <stop offset=".46" stop-color="#d7ad61"/>
+      <stop offset="1" stop-color="#0a756f"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="18" fill="#0c1110"/>
+  <path d="M60 12 101 36v48l-41 24-41-24V36L60 12Z" fill="none" stroke="url(#g)" stroke-width="5"/>
+  <path d="M32 79 59 29l30 62H73l-5-12H51l-6 12H28l4-12Zm24-13h8l-4-10-4 10Z" fill="#f5dfaa"/>
+  <path d="M78 34h18v13H84c-6 0-9 2-9 6 0 3 3 5 8 6l5 1c10 2 16 7 16 16 0 11-9 17-23 17H61V80h20c5 0 8-2 8-5s-3-4-7-5l-7-1c-11-2-17-8-17-17 0-11 8-18 20-18Z" fill="#0a756f"/>
+</svg>
