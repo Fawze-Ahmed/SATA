@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SATA | Service Details</title>
+  <link rel="icon" href="assets/sata-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><img src="assets/sata-logo.svg" alt="SATA logo">
+      <div class="brand-text">
+        <span>SATA</span>
+        <small>Dubai Sovereign Investment Suite</small>
+      </div>
+    </a>
+    <nav class="main-nav open">
+      <a href="index.html#services" id="backServices">الخدمات</a>
+      <a href="index.html#contact" id="backContact">اتصل بنا</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" id="serviceEyebrow"></p>
+        <h1 id="serviceTitle"></h1>
+        <p class="hero-lead" id="serviceIntro"></p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://wa.me/971522581055" target="_blank" rel="noopener" id="whatsButton" aria-label="WhatsApp contact">WhatsApp</a>
+          <a class="btn ghost" href="index.html#contact" id="formButton" aria-label="Consultation form">Consult</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img class="service-hero-img" id="serviceHeroImg" alt="">
+        <div class="city-lines"></div>
+        <div class="orbit"><span></span><span></span><span></span><span></span></div>
+        <div class="video-card">
+          <img src="assets/sata-mark.svg" alt="">
+          <strong id="serviceVisualTitle"></strong>
+          <p id="serviceVisualText"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="suite-grid">
+        <article class="suite-card"><span>01</span><h3 id="valueTitle"></h3><p id="valueText"></p></article>
+        <article class="suite-card"><span>02</span><h3 id="riskTitle"></h3><p id="riskText"></p></article>
+        <article class="suite-card"><span>03</span><h3 id="stepsTitle"></h3><p id="stepsText"></p></article>
+        <article class="suite-card"><span>04</span><h3 id="deliverTitle"></h3><p id="deliverText"></p></article>
+      </div>
+      <section class="section service-meta">
+        <div class="service-meta-grid">
+          <article class="meta-card">
+            <h3 id="stackTitle"></h3>
+            <p id="stackText"></p>
+          </article>
+          <article class="meta-card">
+            <h3 id="techTitle"></h3>
+            <p id="techText"></p>
+          </article>
+        </div>
+      </section>
+      <section class="section reviews">
+        <div class="section-head">
+          <p class="eyebrow" id="reviewEyebrow"></p>
+          <h2 id="reviewTitle"></h2>
+        </div>
+        <div class="testimonial-grid" id="testimonialGrid"></div>
+      </section>
+      <p class="risk-note" id="serviceNote"></p>
+    </section>
+  </main>
+
+  <a class="whatsapp" href="https://wa.me/971522581055" target="_blank" rel="noopener" aria-label="WhatsApp">☎</a>
+
+  <section class="chatbot" aria-live="polite">
+    <button class="chatbot-toggle" type="button" aria-label="Open chatbot">
+      <span>🤖</span>
+    </button>
+    <div class="chatbot-panel">
+      <header>
+        <strong id="botTitle">SATA Sovereign Assistant</strong>
+        <button type="button" class="chatbot-close" aria-label="Close">×</button>
+      </header>
+      <div class="chatbot-messages" id="chatMessages"></div>
+      <div class="quick-questions" id="quickQuestions"></div>
+      <form class="chatbot-form">
+        <input id="chatInput" placeholder="اكتب سؤالك هنا" autocomplete="off">
+        <button type="submit">إرسال</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const lang = params.get("lang") === "en" ? "en" : "ar";
+    const id = Number(params.get("id") || 0);
+    const type = params.get("type") || "main";
+    const serviceImages = [
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=1600&q=88"
+    ];
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+    const data = {
+      ar: [
+        {
+          eyebrow: "VIP Concierge",
+          title: "الممر الملكي: الاستقبال واللوجستيك",
+          intro: "لأن انطباعك الأول يحدد حجم أعمالك. سيارة فاخرة بسائق خاص تنتظرك من لحظة الوصول، وإقامتك محجوزة مسبقاً في أرقى فنادق دبي بأسعار حصرية وعقود خاصة بنا لا يصل إليها المستهلك العادي.",
+          visual: "أنت ترتاح، ونحن نعمل.",
+          visualText: "نحوّل الوصول إلى دبي من سلسلة إجراءات إلى تجربة سيادية هادئة تبدأ قبل أن تغادر الطائرة.",
+          value: "القيمة النفسية والعملية",
+          valueText: "المستثمر لا يشتري سيارة أو فندقاً فقط؛ هو يشتري شعور السيطرة من اللحظة الأولى. هذا يقلل التوتر، يحفظ الوقت، ويمنحك بداية تفاوضية أقوى.",
+          risk: "الخطر الذي نزيله",
+          riskText: "الانتظار، سوء التنسيق، الأسعار السياحية، وتضييع يوم الوصول في ترتيبات كان يجب أن تُحسم مسبقاً.",
+          steps: "كيف نعمل",
+          stepsText: "تأكيد موعد الهبوط، تحديد مستوى السيارة والإقامة، تجهيز جدول الحركة، تنسيق السائق، ومتابعة وصولك حتى تستقر في الفندق أو المكتب.",
+          deliver: "المخرجات",
+          deliverText: "استقبال VIP، سيارة بسائق، حجز فندقي أو إقامة، جدول أول يوم، وتنسيق مباشر عبر واتساب.",
+          stackTitle: "التقنيات والأدوات",
+          stackText: "نستخدم أنظمة حجز VIP متكاملة، CRM مخصص لإدارة الضيوف، تكامل WhatsApp Business API، وتنسيق ميداني آني عبر نظام لوجستي واحد.",
+          techTitle: "أحدث أدوات السوق",
+          techText: "Logistics ERP، Travel API، Secure Messaging، وأدوات تحليل خدمة العملاء الحية لتحويل كل تفاعل إلى تجربة راقية."
+        },
+        {
+          eyebrow: "Corporate & Legal",
+          title: "الدرع القانوني: التأسيس وحل القضايا",
+          intro: "استثمر وأنت مطمئن، فلديك حلفاء قانونيون يحمون الطريق قبل أن تظهر العوائق. نتولى الرخص، الإقامات، عقودك، وحماية استثماراتك من التشتيت القانوني.",
+          visual: "أمنك القانوني هو أولويتنا.",
+          visualText: "نربط التأسيس التجاري بالحماية القانونية حتى لا تبدأ شركتك على أرض رخوة.",
+          value: "القيمة السيادية",
+          valueText: "القانون ليس ورقاً؛ هو سور يحمي رأس المال والوقت والسمعة. كل عقد واضح اليوم يمنع نزاعاً مكلفاً غداً.",
+          risk: "الخطر الذي نزيله",
+          riskText: "تأسيس خاطئ، وثائق ناقصة، عقود ضعيفة، أو نزاعات تجارية يتم اكتشافها بعد فوات الأوان.",
+          steps: "كيف نعمل",
+          stepsText: "تحليل النشاط، اختيار المسار القانوني، تجهيز الوثائق، متابعة الرخصة والإقامة، صياغة العقود، ثم مراجعة نقاط المخاطر.",
+          deliver: "المخرجات",
+          deliverText: "خطة تأسيس، رخصة أو مسار رخصة، ملف إقامة، عقود أساسية، وتوصيات حماية قانونية.",
+          stackTitle: "التقنيات والأدوات",
+          stackText: "نستخدم بيئة قانونية رقمية لتتبع الرخص، إدارة العقود، والأرشفة المؤمنة، مع تحليلات امتثال فورية.",
+          techTitle: "أحدث أدوات السوق",
+          techText: "Document automation، E-Sign، محركات بحث ممتلكات مخصصة، وأساليب حماية السجلات القانونية.",
+        },
+        {
+          eyebrow: "Real Estate",
+          title: "الأصول السيادية: العقارات والمقرات",
+          intro: "المال الذكي يذهب إلى الأصول الثابتة. نقتنص لك فرصاً عقارية في دبي للسكن أو إعادة البيع، ونؤمن مقر شركتك ليكون انعكاساً حقيقياً لقيمة علامتك.",
+          visual: "الأصل الصحيح يسبق العائد.",
+          visualText: "نبحث عن الموقع والمنطق والعائد، لا عن صورة جميلة فقط.",
+          value: "القيمة الاستثمارية",
+          valueText: "العقار في دبي ليس مساحة فقط؛ هو موقع، توقيت، سيولة مستقبلية، وهيبة تشغيلية أمام العملاء والشركاء.",
+          risk: "الخطر الذي نزيله",
+          riskText: "شراء عاطفي، موقع ضعيف، سعر أعلى من القيمة، أو مكتب لا يخدم صورة العلامة ولا حركة الفريق.",
+          steps: "كيف نعمل",
+          stepsText: "تحديد الهدف، تصفية الفرص، مقارنة العائد والموقع، ترتيب المعاينات، مراجعة الشروط، ثم دعم قرار الشراء أو الإيجار.",
+          deliver: "المخرجات",
+          deliverText: "قائمة فرص، تحليل مختصر، معاينات، توصية تفاوض، وخطة تجهيز مقر الشركة.",
+          stackTitle: "التقنيات والأدوات",
+          stackText: "نستخدم أدوات تقييم عقاري ذكية، خرائط تفصيلية، وقواعد بيانات استثمارية لربط الفرص بالمخاطر والعائد.",
+          techTitle: "أحدث أدوات السوق",
+          techText: "Property analytics، CRM استثماري، أتمتة جدولة، وتقارير أداء لإدارة المقرات والسيولة.",
+        },
+        {
+          eyebrow: "Tech Suite & AI",
+          title: "العقل الاصطناعي: البرمجيات والتحول الرقمي",
+          intro: "إذا لم تكن أعمالك رقمية ومؤتمتة بالذكاء الاصطناعي، فأنت خارج المستقبل. نصمم مواقعك، تطبيقاتك، وأنظمة CRM لتتحول شركتك إلى ماكينة رقمية تعمل وتبيع ذاتياً.",
+          visual: "نشاطك يعمل حتى وأنت خارج المكتب.",
+          visualText: "واجهة فاخرة للعميل، ومحرك ذكي خلف الكواليس يدير البيانات والطلبات والمتابعة.",
+          value: "القيمة التشغيلية",
+          valueText: "التقنية الجيدة لا تضيف تعقيداً؛ بل تخفض الاعتماد على البشر في المهام المتكررة وتزيد سرعة البيع والمتابعة.",
+          risk: "الخطر الذي نزيله",
+          riskText: "فقدان العملاء بسبب بطء الرد، بيانات مبعثرة، قرارات بلا أرقام، أو موقع لا يليق بحجم العرض.",
+          steps: "كيف نعمل",
+          stepsText: "تحليل رحلة العميل، تصميم الواجهة، بناء الموقع أو التطبيق، ربط CRM، إعداد الأتمتة والشات بوت، ثم قياس الأداء.",
+          deliver: "المخرجات",
+          deliverText: "موقع، تطبيق iOS/Android حسب النطاق، CRM، شات بوت، أتمتة، ولوحات متابعة.",
+          stackTitle: "التقنيات والأدوات",
+          stackText: "بنية تقنية متكاملة تشمل واجهات API، منصات CRM، أتمتة AI، وتطبيقات خدمة ذاتية لإدارة العملاء.",
+          techTitle: "أحدث أدوات السوق",
+          techText: "React, Node.js, Laravel, ChatGPT integration, workflow automation, and analytics dashboards.",
+        },
+        {
+          eyebrow: "Cybersecurity & Fintech",
+          title: "الحصن المالي: التداول الذكي، التعدين والأمن السيبراني",
+          intro: "لا تترك أصولك راكدة، ولا تترك ثغرة للمخترقين. نوفر حلول فنتك، تداول مؤتمت، تطبيقات تعدين ومنصات كريبتو، مع تشفير واختبارات اختراق دورية.",
+          visual: "رأس المال والبيانات تحت رقابة ذكية.",
+          visualText: "نمزج الفنتك بالحماية السيبرانية حتى لا تتحول الفرصة الرقمية إلى نقطة ضعف.",
+          value: "القيمة المالية",
+          valueText: "الأصل الرقمي يحتاج نظاماً يراقب المخاطر، يحلل البيانات، ويحمي البنية من الاختراق قبل البحث عن العائد.",
+          risk: "الخطر الذي نزيله",
+          riskText: "وعود عائد غير واقعية، منصات غير آمنة، مفاتيح وبيانات مكشوفة، أو تداول بلا إدارة مخاطر.",
+          steps: "كيف نعمل",
+          stepsText: "تقييم الهدف ورأس المال، مراجعة الامتثال والمخاطر، تصميم الحل التقني، اختبار الأمان، ثم متابعة الأداء.",
+          deliver: "المخرجات",
+          deliverText: "حل فنتك، نظام تداول أو مراقبة، تطبيقات كريبتو/تعدين حسب النطاق، تشفير، واختبارات اختراق."
+        }
+      ],
+      en: [
+        {
+          eyebrow: "VIP Concierge",
+          title: "The Royal Corridor: VIP Concierge & Logistics",
+          intro: "Your first impression defines the scale of your business. A luxury chauffeured car awaits from arrival, while your stay is pre-arranged in Dubai through exclusive hotel agreements.",
+          visual: "You rest. We operate.",
+          visualText: "We turn arrival in Dubai from a chain of tasks into a sovereign experience prepared before landing.",
+          value: "Practical value",
+          valueText: "The investor is not buying a car or hotel only; they are buying control from the first moment.",
+          risk: "Risk removed",
+          riskText: "Waiting, poor coordination, tourist pricing, and wasting arrival day on arrangements.",
+          steps: "Process",
+          stepsText: "Confirm landing, choose car and stay level, prepare schedule, coordinate driver, and follow through until you settle.",
+          deliver: "Deliverables",
+          deliverText: "VIP reception, chauffeur, hotel or stay booking, first-day schedule, and direct WhatsApp coordination.",
+          stackTitle: "Technologies & Tools",
+          stackText: "We deploy integrated VIP booking systems, custom guest CRM, WhatsApp Business API, and live logistics orchestration to keep every step synced.",
+          techTitle: "Modern market stack",
+          techText: "Logistics ERP, Travel API, Secure Messaging, and live customer experience analytics to turn every interaction into a premium arrival."
+        },
+        {
+          eyebrow: "Corporate & Legal",
+          title: "The Legal Shield: Corporate Setup & Legal Support",
+          intro: "Invest with confidence through legal allies that protect the road before obstacles appear. We support licenses, residency, contracts, and investment protection.",
+          visual: "Your legal security comes first.",
+          visualText: "We connect corporate setup with legal protection so your company starts on solid ground.",
+          value: "Sovereign value",
+          valueText: "Law is not paperwork; it is the wall protecting capital, time, and reputation.",
+          risk: "Risk removed",
+          riskText: "Wrong setup, missing documents, weak contracts, or commercial disputes found too late.",
+          steps: "Process",
+          stepsText: "Activity analysis, legal route selection, documents, license and residency follow-up, contracts, and risk review.",
+          deliver: "Deliverables",
+          deliverText: "Setup plan, license route, residency file, core contracts, and legal protection recommendations.",
+          stackTitle: "Technologies & Tools",
+          stackText: "A legal operations platform for license tracking, contract management, secure archiving, and compliance dashboards.",
+          techTitle: "Modern market stack",
+          techText: "Document automation, e-sign workflows, custom search, and secure record management tools.",
+        },
+        {
+          eyebrow: "Real Estate",
+          title: "Sovereign Assets: Real Estate & Headquarters",
+          intro: "Smart money moves into fixed assets. We source Dubai real estate opportunities for living or resale and secure headquarters that reflect your brand value.",
+          visual: "The right asset comes before the return.",
+          visualText: "We search for location, logic, and future value, not a beautiful picture only.",
+          value: "Investment value",
+          valueText: "Dubai real estate is location, timing, future liquidity, and operational prestige.",
+          risk: "Risk removed",
+          riskText: "Emotional buying, weak location, overpaying, or choosing an office that weakens brand perception.",
+          steps: "Process",
+          stepsText: "Define goal, filter opportunities, compare return and location, arrange viewings, review terms, and support negotiation.",
+          deliver: "Deliverables",
+          deliverText: "Opportunity list, brief analysis, viewings, negotiation recommendation, and office setup plan.",
+          stackTitle: "Technologies & Tools",
+          stackText: "We apply smart property evaluation tools, mapping systems, and investor data to align opportunities with risk and return.",
+          techTitle: "Modern market stack",
+          techText: "Property analytics, investment CRM, scheduling automation, and performance reporting.",
+        },
+        {
+          eyebrow: "Tech Suite & AI",
+          title: "The Artificial Mind: Software, AI & Digital Transformation",
+          intro: "If your business is not digital and AI-automated, it is outside the future. We build websites, apps, and CRM systems that operate and sell around the clock.",
+          visual: "Your operation works beyond office hours.",
+          visualText: "A luxury client interface and a smart engine behind the scenes managing data, requests, and follow-up.",
+          value: "Operational value",
+          valueText: "Good technology reduces repetitive human work and increases sales and follow-up speed.",
+          risk: "Risk removed",
+          riskText: "Lost clients from slow replies, scattered data, decisions without numbers, or a website below your offer.",
+          steps: "Process",
+          stepsText: "Analyze client journey, design UI, build website or app, connect CRM, set automation and chatbot, then measure.",
+          deliver: "Deliverables",
+          deliverText: "Website, iOS/Android app when scoped, CRM, chatbot, automation, and dashboards.",
+          stackTitle: "Technologies & Tools",
+          stackText: "An integrated digital stack with web, mobile, CRM, chatbot automation, and performance measurement.",
+          techTitle: "Modern market stack",
+          techText: "React, Node.js, Laravel, CRM frameworks, AI chatbots, and analytics dashboards.",
+        },
+        {
+          eyebrow: "Cybersecurity & Fintech",
+          title: "The Financial Fortress: Smart Trading, Mining & Cybersecurity",
+          intro: "Do not leave assets idle or vulnerabilities open. We provide fintech, automated trading, mining apps, crypto platforms, encryption, and penetration testing.",
+          visual: "Capital and data under intelligent control.",
+          visualText: "We combine fintech with cybersecurity so digital opportunity does not become a weak point.",
+          value: "Financial value",
+          valueText: "Digital assets need systems that monitor risk, analyze data, and protect infrastructure before chasing yield.",
+          risk: "Risk removed",
+          riskText: "Unrealistic return promises, unsafe platforms, exposed keys or data, and trading without risk management.",
+          steps: "Process",
+          stepsText: "Assess goal and capital, review compliance and risk, design technical solution, test security, then monitor.",
+          deliver: "Deliverables",
+          deliverText: "Fintech solution, trading or monitoring system, crypto/mining apps when scoped, encryption, and penetration tests.",
+          stackTitle: "Technologies & Tools",
+          stackText: "A unified fintech stack with encrypted wallets, trading engines, mining dashboards, and compliance monitoring.",
+          techTitle: "Modern market stack",
+          techText: "Python, Django, React, blockchain wallets, payment gateways, and penetration testing suites.",
+        }
+      ]
+    };
+
+    const testimonials = {
+      ar: [
+        [
+          ["آراء العملاء", "4.9 ★", "«وصلت دبي وأنا مرتاح. لم أكن أتوقع هذا المستوى من الانسيابية والتنسيق.»", "عميل خاص"],
+          ["آراء العملاء", "4.8 ★", "«آخر التعديلات تم تنفيذها بسلاسة تامة، وهذا ما يجب أن تكون عليه الخدمة السيادية.»", "مدير عمليات"]
+        ],
+        [
+          ["آراء العملاء", "4.8 ★", "«العمل القانوني كان دقيقاً وسريعاً. شعرت أن المخاطر إلى جانبنا وليس أمامنا.»", "شريك أعمال"],
+          ["آراء العملاء", "4.7 ★", "«التفاصيل العقدية كانت واضحة ولم تترك مجالاً للتأويل.»", "مستثمر"]
+        ],
+        [
+          ["آراء العملاء", "4.9 ★", "«المقر الجديد رفع مستوى عملنا وفتح لنا فرص تواصل أفضل مع شركاء السوق.»", "مستثمر عقاري"],
+          ["آراء العملاء", "4.8 ★", "«التحليل العقاري كان محترفاً جداً واستند إلى بيانات واقعية.»", "مطور عقاري"]
+        ],
+        [
+          ["آراء العملاء", "4.7 ★", "«النظام الرقمي الجديد جعل التفاعل مع العملاء أسهل، والنتائج ظهرت بسرعة.»", "مدير تنفيذي"],
+          ["آراء العملاء", "4.6 ★", "«التقنيات الحديثة منحتنا مرونة كبيرة في تعديل تجربة العميل يومياً.»", "رئيس تقنية"]
+        ],
+        [
+          ["آراء العملاء", "4.8 ★", "«التقارير الأمنية أبعدت عني الكثير من القلق. النظام يعمل بثقة وأنا أعتمد عليه.»", "مدير تقنية"],
+          ["آراء العملاء", "4.9 ★", "«لم أكن أتوقع هذه الجودة في إدارة مخاطر التداول الرقمي.»", "مدير استثمار"]
+        ]
+      ],
+      en: [
+        [
+          ["Client feedback", "4.9 ★", "“I arrived in Dubai feeling calm. I did not expect this level of coordination.”", "Private client"],
+          ["Client feedback", "4.8 ★", "“Last-minute changes were handled seamlessly, which is what sovereign service should feel like.”", "Operations Director"]
+        ],
+        [
+          ["Client feedback", "4.8 ★", "“The legal work was precise and fast. I felt risks were beside us, not ahead of us.”", "Business partner"],
+          ["Client feedback", "4.7 ★", "“The contract details left no room for guesswork.”", "Investor"]
+        ],
+        [
+          ["Client feedback", "4.9 ★", "“The new headquarters elevated our operation and opened better market access.”", "Real estate investor"],
+          ["Client feedback", "4.8 ★", "“The property analysis was very professional and data-driven.”", "Real estate developer"]
+        ],
+        [
+          ["Client feedback", "4.7 ★", "“The new digital system made customer interaction easier, with quick results.”", "CEO"],
+          ["Client feedback", "4.6 ★", "“Modern tech gave us huge flexibility to adjust the customer experience daily.”", "Head of Tech"]
+        ],
+        [
+          ["Client feedback", "4.8 ★", "“The security reports removed a lot of my worry. The system works with confidence.”", "CTO"],
+          ["Client feedback", "4.9 ★", "“I did not expect this level of risk management in digital trading.”", "Investment Director"]
+        ]
+      ]
+    };
+
+    const extraDetails = {
+      tech: {
+        ar: [
+          ["WEB", "تصميم وتطوير مواقع الويب", "موقعك ليس بطاقة تعريف؛ هو غرفة استقبال رقمية تقنع العميل وتدفعه للخطوة التالية.", "نبني مواقع شركات، صفحات هبوط، بوابات عملاء، وتجارب ثنائية اللغة بسرعة عالية.", "تحويل وثقة", "تحليل الهدف، تصميم UX/UI، تطوير متجاوب، SEO أساسي، نماذج، وربط تحليلات.", "الزائر لا ينتظر. إن لم يفهم قيمتك خلال ثوانٍ سيغادر.", "موقع كامل، نماذج، واتساب، شات بوت، وربط أدوات القياس."],
+          ["APP", "تطبيقات iOS وAndroid", "نحوّل فكرتك إلى تطبيق عملي يخدم العملاء أو الفريق الداخلي.", "تطبيقات حجوزات، محافظ، متاجر، خدمات VIP، ولوحات عميل.", "قرب دائم من العميل", "رحلة المستخدم، تصميم الواجهة، تطوير، اختبار، نشر، وربط APIs.", "التطبيق السيئ يقتل الثقة، لذلك نركز على السرعة والسهولة.", "تطبيق iOS/Android، لوحة إدارة، إشعارات، تسجيل دخول، وربط دفع أو CRM."],
+          ["DESK", "تطبيقات Windows وmacOS", "برامج سطح مكتب للعمليات الحساسة أو الداخلية.", "أنظمة مراقبة، تقارير، تداول، إدارة ملفات، وأدوات موظفين.", "تحكم داخلي أقوى", "تحليل workflow، تصميم واجهة، بناء التطبيق، حماية البيانات.", "بعض العمليات تحتاج أداء وثباتاً أعلى من المتصفح.", "برنامج Windows/macOS، صلاحيات، تقارير، وربط قواعد بيانات."],
+          ["CRM", "أنظمة CRM وإدارة العملاء", "CRM يجعل كل عميل وفرصة ومتابعة تحت السيطرة.", "مسارات مبيعات، تذاكر دعم، أتمتة متابعة، ملفات عملاء، ومؤشرات.", "مبيعات لا تضيع", "تحليل دورة البيع، تصميم الحقول، بناء اللوحات، الأتمتة، والصلاحيات.", "كل رسالة غير موثقة قد تكون صفقة ضائعة.", "CRM مخصص، Dashboard، صلاحيات، تنبيهات، وربط واتساب أو البريد."],
+          ["SEC", "الأمن السيبراني واختبار الاختراق", "الحماية أساس أي مشروع يتعامل مع أموال أو بيانات.", "فحص ثغرات، حماية خوادم، تشفير، مراقبة وصول، وسياسات أمان.", "ثقة واستمرارية", "تدقيق البنية، اختبار اختراق، تقرير مخاطر، إصلاحات.", "الاختراق قد يبدأ من نموذج بسيط أو كلمة مرور ضعيفة.", "تقرير أمني، خطة إصلاح، تشفير، إعدادات حماية."],
+          ["MKT", "التسويق الرقمي والنمو", "التقنية بلا تسويق لا تصل. نصمم مساراً يقنع ويحوّل.", "إعلانات، SEO، محتوى، صفحات هبوط، حملات أداء، وتحسين تحويل.", "نمو قابل للقياس", "تحليل جمهور، رسائل، خطة محتوى، حملات، قياس.", "العميل يشتري الأكثر وضوحاً وثقة في ذهنه.", "خطة تسويق، محتوى، صفحات هبوط، إعلانات، وتقارير أداء."],
+          ["UX", "تصميم الهوية والديزاين", "الهوية هي الانطباع الذي يبقى بعد إغلاق الصفحة.", "شعارات، ألوان، UI/UX، بروفايل شركة، عروض، وسوشيال ميديا.", "ذاكرة بصرية قوية", "تحليل العلامة، moodboard، تصميم، مراجعة، ودليل استخدام.", "التصميم الضعيف يجعل المشروع الغالي يبدو عادياً.", "Logo، Brand kit، UI screens، pitch deck، وقوالب."],
+          ["AI", "الذكاء الاصطناعي والأتمتة", "نحوّل العمليات المتكررة إلى أنظمة ذكية.", "شات بوت، مساعدات AI، تحليل بيانات، أتمتة، وربط أدوات العمل.", "فريق يعمل أسرع", "رسم العمليات، تحديد الأتمتة، بناء النموذج، ربط APIs.", "كل مهمة يدوية متكررة هي تكلفة مخفية.", "مساعد ذكي، workflow automation، تقارير، وربط CRM أو واتساب."]
+        ],
+        en: []
+      },
+      project: {
+        ar: [
+          ["MINING", "تطبيقات التعدين الذكي", "منصات لمتابعة عمليات التعدين، الأجهزة، الأرباح، المحافظ، والتنبيهات.", "نظام يراقب الأداء والأعطال والإيرادات من لوحة واحدة.", "رؤية تشغيلية كاملة", "لوحة أجهزة، محافظ، تقارير، تنبيهات، وصلاحيات.", "مشاريع التعدين تحتاج رؤية لحظية حتى لا تتحول الفوضى إلى خسارة.", "Dashboard تعدين، تنبيهات، تقارير، وإدارة محافظ."],
+          ["EXCHANGE", "منصات تبادل العملات الرقمية", "واجهات تبادل وتداول مع محافظ، KYC، أوامر، وسجلات.", "نركز على تجربة تداول واضحة وحماية الحسابات.", "ثقة في كل عملية", "UX، محافظ، أوامر، تحقق، أمان، وتقارير.", "منصة الكريبتو تحتاج ثقة قبل الميزات.", "واجهة تداول، لوحة إدارة، محافظ، KYC، وسجلات."],
+          ["TRADING", "أنظمة تداول مؤتمتة", "أنظمة مراقبة وتحليل وربط APIs مع إدارة مخاطر وتنبيهات.", "أدوات تساعد على قراءة السوق وتنفيذ منطق محدد.", "سرعة وانضباط", "تحليل الاستراتيجية، API، محاكاة، تنبيهات، Dashboard.", "التداول بلا نظام يتحول إلى انفعال.", "نظام متابعة، تنبيهات، ربط API، ومحاكاة."],
+          ["OPS", "لوحات إدارة شركات VIP", "مركز تحكم يجمع العملاء والحجوزات والوثائق والطلبات.", "نحول الشركة إلى غرفة عمليات مرئية لكل فريق.", "سيطرة إدارية", "خرائط عمليات، لوحات، صلاحيات، حالات طلب، وتقارير.", "كل متابعة متأخرة تضعف الفخامة.", "Dashboard عمليات، CRM، طلبات، وثائق، وفواتير."],
+          ["REALTY", "تطبيقات عقارية واستثمارية", "منصات عرض وحدات، حجز معاينات، مقارنة عوائد، وإدارة مستثمرين.", "نربط العقار بالقرار الاستثماري.", "بيع عقاري أذكى", "كتالوج، فلاتر، حجز، مقارنة، CRM مبيعات.", "المستثمر يحتاج سبباً واضحاً للاختيار.", "تطبيق عقاري، لوحة وحدات، حجز، وتحليلات."],
+          ["BOT", "مساعدات AI لخدمة العملاء", "مساعدات تفهم الأسئلة وتوجه المستخدم للاستشارة.", "نصمم شخصية المساعد وقاعدة المعرفة وربطه بواتساب أو CRM.", "رد سريع لا ينام", "أسئلة، إجابات، intents، ربط CRM، وتحسين.", "العميل المتردد يحتاج رد الآن.", "شات بوت، قاعدة معرفة، ربط واتساب/CRM، وتقارير."]
+        ],
+        en: []
+      }
+    };
+    extraDetails.tech.en = extraDetails.tech.ar;
+    extraDetails.project.en = extraDetails.project.ar;
+    const extraImages = {
+      tech: [
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=88"
+      ],
+      project: [
+        "https://images.unsplash.com/photo-1640161704729-cbe966a08476?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=88",
+        "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=1600&q=88"
+      ]
+    };
+    function normalized(item) {
+      return {
+        eyebrow: item[0], title: item[1], intro: item[2], visual: item[3], visualText: item[4],
+        value: lang === "ar" ? "القيمة" : "Value", valueText: item[5],
+        risk: lang === "ar" ? "لماذا تحتاجها؟" : "Why it matters", riskText: item[6],
+        steps: lang === "ar" ? "طريقة التنفيذ" : "Execution", stepsText: item[7],
+        deliver: lang === "ar" ? "المخرجات" : "Deliverables", deliverText: item[8]
+      };
+    }
+    let s = data[lang][id] || data[lang][0];
+    let imageList = serviceImages;
+    if (type === "tech" || type === "project") {
+      s = normalized(extraDetails[type][lang][id] || extraDetails[type][lang][0]);
+      imageList = extraImages[type];
+    }
+    serviceHeroImg.src = imageList[id] || imageList[0];
+    serviceHeroImg.alt = s.title;
+    backServices.textContent = lang === "ar" ? "الخدمات" : "Services";
+    backContact.textContent = lang === "ar" ? "اتصل بنا" : "Contact";
+    serviceEyebrow.textContent = s.eyebrow;
+    serviceTitle.textContent = s.title;
+    serviceIntro.textContent = s.intro;
+    serviceVisualTitle.textContent = s.visual;
+    serviceVisualText.textContent = s.visualText;
+    valueTitle.textContent = s.value;
+    valueText.textContent = s.valueText;
+    riskTitle.textContent = s.risk;
+    riskText.textContent = s.riskText;
+    stepsTitle.textContent = s.steps;
+    stepsText.textContent = s.stepsText;
+    deliverTitle.textContent = s.deliver;
+    deliverText.textContent = s.deliverText;
+    const reviewSet = testimonials[lang][id] || testimonials[lang][0];
+    reviewEyebrow.textContent = reviewSet[0][0];
+    reviewTitle.textContent = lang === "ar" ? "تقييم العملاء لكل خدمة" : "Client review for this service";
+    const reviewGrid = document.getElementById("testimonialGrid");
+    reviewGrid.innerHTML = reviewSet.map((review) => `
+      <article class="testimonial-card">
+        <p>${review[2]}</p>
+        <div class="testimonial-meta">
+          <strong>${review[3]}</strong>
+          <span>${review[1]}</span>
+        </div>
+      </article>
+    `).join("");
+    stackTitle.textContent = s.stackTitle || "";
+    stackText.textContent = s.stackText || "";
+    techTitle.textContent = s.techTitle || "";
+    techText.textContent = s.techText || "";
+    whatsButton.textContent = lang === "ar" ? "تواصل عبر واتساب" : "Contact on WhatsApp";
+    formButton.textContent = lang === "ar" ? "املأ نموذج الاستشارة" : "Fill consultation form";
+    serviceNote.textContent = lang === "ar"
+      ? "كل خدمة تبدأ باستشارة لتحديد النطاق، المخاطر، والالتزامات النظامية قبل التنفيذ."
+      : "Each service starts with a consultation to define scope, risk, and compliance requirements before execution.";
+    document.title = `${s.title} | SATA`;
+
+    const botTitle = document.getElementById("botTitle");
+    botTitle.textContent = lang === "ar" ? "مساعد SATA السيادي" : "SATA Sovereign Assistant";
+
+    function botReply(query) {
+      const text = query.toLowerCase();
+      const ar = lang === "ar";
+      if (ar && /تأسيس|شرك|رخص|إقامة/.test(text)) return "نستطيع ترتيب التأسيس القانوني، الرخص، والإقامة بسرعة مع مسار واضح لاستقرار أعمالك في دبي.";
+      if (!ar && /(setup|company|license|residency)/.test(text)) return "We can arrange corporate setup, licenses, and residency quickly with a clear path for your Dubai operation.";
+      if (ar && /عقار|مقر|سكن/.test(text)) return "نقدم تحليل عقاري واستشارات مقر فندقي أو مكتبي مخصص لاحتياجات استثمارك في دبي.";
+      if (!ar && /(real estate|office|property)/.test(text)) return "We provide property analysis and headquarters consulting tailored for your Dubai investment needs.";
+      if (ar && /بوت|شات|ذكاء/.test(text)) return "نصمم شات بوتات ذكية، أتمتة، وربط واتساب لتجعل تفاعل العميل سريعاً واحترافياً.";
+      if (!ar && /(bot|chat|ai|automation)/.test(text)) return "We design smart chatbots, automation, and WhatsApp integration to make client interaction fast and professional.";
+      if (ar && /واتساب|تواصل/.test(text)) return "استخدم زر واتساب للتواصل المباشر، وسنجهز لك مسار الوصول أو الاستشارة فوراً.";
+      if (!ar && /(whatsapp|contact)/.test(text)) return "Use the WhatsApp button for direct contact, and we will prepare the arrival or consultation path immediately.";
+      return ar ? "سأجيبك بعد قليل. أخبرني إن كنت تريد استقبال VIP، تأسيس شركة، عقار، تقنية، أو فنتك." : "I will answer shortly. Tell me if you want VIP arrival, company setup, real estate, tech, or fintech.";
+    }
+
+    function addMessage(text, type = "bot") {
+      const messages = document.getElementById("chatMessages");
+      const msg = document.createElement("div");
+      msg.className = `msg ${type}`;
+      msg.textContent = text;
+      messages.appendChild(msg);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function resetBot() {
+      const quick = document.getElementById("quickQuestions");
+      const ar = lang === "ar";
+      document.getElementById("chatMessages").innerHTML = "";
+      addMessage(ar ? "مرحباً، أنا مساعد SATA السيادي. اسألني عن الخدمة التي تحتاجها وسأرشدك للاستشارة المناسبة." : "Hello, I am SATA Sovereign Assistant. Ask about the service you need and I will guide you to the right consultation.");
+      const questions = ar ? ["أريد استقبال VIP", "أحتاج تأسيس شركة", "ما أحدث الحلول الرقمية؟", "كيف أبدأ عقاراً؟"] : ["I need VIP arrival", "I need company setup", "What are the latest digital solutions?", "How do I start real estate?"];
+      quick.innerHTML = questions.map((q) => `<button type="button">${q}</button>`).join("");
+      quick.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", () => {
+          addMessage(button.textContent, "user");
+          addMessage(botReply(button.textContent));
+        });
+      });
+    }
+
+    document.querySelector(".chatbot-toggle").addEventListener("click", () => document.querySelector(".chatbot").classList.add("open"));
+    document.querySelector(".chatbot-close").addEventListener("click", () => document.querySelector(".chatbot").classList.remove("open"));
+    document.querySelector(".chatbot-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const input = document.getElementById("chatInput");
+      if (!input.value.trim()) return;
+      addMessage(input.value, "user");
+      addMessage(botReply(input.value));
+      input.value = "";
+    });
+    resetBot();
+  </script>
+</body>
+</html>
